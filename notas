@@ -1,0 +1,28 @@
+- Intalar normalente arch linux https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-4
+
+- Conectar por cable ethernet
+- entrar alarm, alarm, su a root/root
+
+
+
+pacman-key --init
+pacman-key --populate archlinuxarm
+pacman -Fy
+pacman -Syu
+reboot
+
+pacman -Sy git
+cd
+git clone https://github.com/prosich/reinstalapi
+cd reinstalapi
+./config
+
+# !Conseguir /etc !! COMO?? 
+
+systemctl enable openvpn-server@peque
+systemctl start  openvpn-server@peque
+
+cd /; ssh chico "cd /B/peque/hoy/raiz && tar cf - cosas"  |tar xf -
+cd /; ssh chico "cd /B/peque/hoy/raiz && tar cf - root"   |tar xf -
+cd /; ssh chico "cd /B/peque/hoy/raiz && tar cf - scripts"|tar xf -
+
